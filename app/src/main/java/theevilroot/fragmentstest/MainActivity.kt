@@ -25,10 +25,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportFragmentManager.addOnBackStackChangedListener {
             if (supportFragmentManager.backStackEntryCount > 0) {
-                supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+                supportActionBar?.setDisplayHomeAsUpEnabled(true)
             } else {
-                supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+                supportActionBar?.setDisplayHomeAsUpEnabled(false)
             }
+            supportActionBar?.title = (supportFragmentManager.fragments[0] as ItemFragment).item.title
         }
         fillItem(root, 0)
         rootFragment = ItemFragment.create(this, root)
